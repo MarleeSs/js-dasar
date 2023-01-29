@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Membuat Object</title>
+</head>
+<body>
+<script>
+    // Object literal
+    {
+        let mahasiswa = {
+            name: 'Coba',
+            energy: 10,
+            eat: function (portion) {
+                this.energy += portion;
+                console.info(`Energi saat ini : ${this.energy}`);
+            }
+        };
+    }
+
+    // function declaration
+    {
+        function Mahasiswa(name, energy) {
+            let mhs = {};
+            mhs.name = name;
+            mhs.energy = energy;
+
+            mhs.eat = function (portion) {
+                mhs.energy += portion;
+                console.info(`Energi saat ini : ${this.energy}`);
+            };
+
+            mhs.playingGame = function (time) {
+                mhs.energy -= time;
+                console.info(`Energi saat ini : ${this.energy}`);
+            };
+            return mhs;
+        }
+
+        let coba = Mahasiswa('Coba', 10);
+    }
+
+    // constructor
+    {
+        function MahasiswaIsConstructor(name, energy) {
+            this.name = name;
+            this.energy = energy;
+
+            this.eat = function (portion) {
+                this.energy += portion;
+                console.info(`Energi saat ini : ${this.energy}`);
+            };
+
+            this.playingGame = function (time) {
+                this.energy -= time;
+                console.info(`Energi saat ini : ${this.energy}`);
+            };
+        }
+
+        let coba = new MahasiswaIsConstructor('Coba', 100);
+    }
+</script>
+</body>
+</html>
